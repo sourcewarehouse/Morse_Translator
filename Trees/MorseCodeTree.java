@@ -71,11 +71,11 @@ public final class MorseCodeTree extends BinaryTree{
     public BinaryTreeNode find(Object obj){
         String code = (String) obj;
         BinaryTreeNode curr = root;
-        for (char c: code){
-            if (c == '.'){
-                curr = curr.right;
+        for (int i=0; i<code.length(); i++){
+            if (code.charAt(i) == '.'){
+                curr = curr.rightChild;
             } else{
-                curr = curr.left;
+                curr = curr.leftChild;
             }
             
             if (curr == null){
