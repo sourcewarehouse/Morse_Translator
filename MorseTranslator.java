@@ -4,6 +4,8 @@ import Trees.*;
 /**
  * MorseTranslator translates between English and Morse Code.
  * Depending on user input, it translates to the other language.
+ * @author Crystal Chen
+ * @version May 2013
  */
 public class MorseTranslator{
 

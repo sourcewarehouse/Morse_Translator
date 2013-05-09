@@ -1,5 +1,10 @@
 package Trees;
 
+/**
+ * Personal implementation of a BinaryTreeNode for BinaryTree
+ * @author Crystal Chen
+ * @version April 2013
+ */
 public class BinaryTreeNode{
 	
 	//Default package protection

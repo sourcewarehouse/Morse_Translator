@@ -7,6 +7,8 @@ public class MorseCodeDict extends HashMap<Character, String>{
      * and symbols (Period, Comma, Question Mark, Slash, At-sign)
      * to the corresponding Morse Code. Whitespace is mapped as a new line
      * to denote the beginning of a new word.
+     * @author Crystal Chen
+     * @version May 2013
      */
 
     public MorseCodeDict(){

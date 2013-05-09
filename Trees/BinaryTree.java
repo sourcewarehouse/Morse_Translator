@@ -1,5 +1,10 @@
 package Trees;
 
+/**
+ * Personal implementation of a BinaryTree
+ * @author Crystal Chen
+ * @version April 2013
+ */
 public abstract class BinaryTree{
 
 	//Default package protection

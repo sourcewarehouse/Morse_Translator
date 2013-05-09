@@ -5,6 +5,8 @@ public final class MorseCodeTree extends BinaryTree{
     /**
      * A MorseCodeTree is a SimpleBinaryTree with preset node values
      * following the tree from http://www.learnmorsecode.com/
+     * @author Crystal Chen
+     * @version April 2013
      */
     BinaryTreeNode a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
                    zero,one,two,three,four,five,six,seven,eight,nine,
