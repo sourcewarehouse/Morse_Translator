@@ -7,55 +7,84 @@ import Trees.*;
  */
 public class MorseTranslator{
 
-	private final MorseCodeTree morseCode;
+    public final MorseCodeTree refTree = new MorseCodeTree();
+    public final MorseCodeDict refDict = new MorseCodeDict();
 
-	public MorseTranslator(Boolean numeric){
-		morseCode = new MorseCodeTree(numeric);
-	}
+    /**
+     * Default constructor
+     */
+    public MorseTranslator(){
 
-	public String toMorse(String text){
-		String result = "";
-		return result;
-	}
+    }
 
-	public String toEnglish(String morse){
-		String result = "";
-		return result;
-	}
+    /**
+     * Translates the given text into its Morse Code equivalent.
+     *
+     * @param text      the English text to be translated
+     * @return          a String of the Morse Code of the original text
+     */
+    public String toMorse(String text){
+        String result = "";
 
-	/**
-	 * Returns the MorseCodeTree used for reference
-	 * in this MorseTranslator
-	 */
-	public MorseCodeTree getReference(){
-		return morseCode;
-	}
+        for (int i=0; i<text.length(); i++){
+            String code = refDict.get(text.charAt(i));
+            if (code == null){
+                throw new IllegalArgumentException("Cannot find: "+text.charAt(i));
+            }
+            result += code + " ";
+        }
+        return result;
+    }
 
-	public static void main(String[] args){
-		MorseTranslator test;
-		String result = "";
+    /**
+     * Translates the given Morse Code message into English.
+     *
+     * @param morse     the Morse Code message to be decoded
+     * @return          a String of the decoded message in English
+     */
+    public String toEnglish(String morse){
+        String[] message = morse.split(" ");
+        String result = "";
 
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Does your message contain numbers?: ");
-		String numeric = sc.nextLine().toUpperCase();
-		if (numeric.equals("Y") || numeric.equals("YES")){
-			test = new MorseTranslator(true);
-		} else{
-			test = new MorseTranslator(false);
-		}
-		System.out.println("Reference tree:\n"+test.getReference().toString());
+        for (String str: message){
+            result += refTree.find(str).getItem();
+        }
+        return result;
+    }
 
-		System.out.print("Input your message: ");
-		String input = sc.nextLine();
-		if (input.charAt(0) != '.' && input.charAt(0)!= '-'){
-			System.out.println("Please enter morse code");
-		} else{
-			System.out.println("To be implemented");
-			//pass each morse code letter parsed by whitespace into find
-			//result += find(morse code letter)
-			//make morsecodetreenodes that store letter and morse representations
-			//implement find in morsecodetree that takes string param
-			//if string has letters, return morse code val in node, vice versa
-		}
-	}
+
+    public static void main(String[] args){
+        MorseTranslator test = new MorseTranslator();
+        Scanner sc = new Scanner(System.in);
+        Boolean tree, dict = false;
+        String input;
+
+        System.out.println("\n[[MorseTranslator]] English to Morse Code | Morse Code to English\n");
+
+        while (true){
+            System.out.print("Input your message (return to end): ");
+            input = sc.nextLine().toUpperCase();
+
+            if (input.length() == 0){
+                break;
+            }
+
+            try{
+                if (input.charAt(0) != '.' && input.charAt(0)!= '-'){ //Message is in English
+                    System.out.println(test.toMorse(input));
+                } else{
+                    System.out.println(test.toEnglish(input));
+                }
+            } catch (IllegalArgumentException e){
+                System.out.println(e);
+            }
+        }
+
+        System.out.print("Print encoding/decoding reference? ");
+        String response = sc.nextLine().toUpperCase();
+        if (response.equals("Y") || response.equals("YES")){
+            System.out.println(test.refDict);
+        }
+    }
 }
+
