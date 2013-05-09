@@ -46,6 +46,7 @@ public class MorseCodeDict<K,V> extends HashMap<K,V>{
         put('?', "..--..");
         put('/', "-..-.");
         put('@', ".--.-.");
+        put(' ', "\n");
     }
 
 }
