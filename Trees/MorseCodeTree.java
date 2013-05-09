@@ -71,15 +71,17 @@ public final class MorseCodeTree extends BinaryTree{
     public BinaryTreeNode find(Object obj){
         String code = (String) obj;
         BinaryTreeNode curr = root;
+        
         for (int i=0; i<code.length(); i++){
-            if (code.charAt(i) == '.'){
+            char c = code.charAt(i);
+
+            if (c == '.'){
                 curr = curr.rightChild;
-            } else{
+            } else if (c == '-'){
                 curr = curr.leftChild;
             }
-            
-            if (curr == null){
-                throw new IllegalArgumentException("Invalid Morse Code: "+code);
+            if (curr == null || (c != '.' && c != '-')){
+                throw new IllegalArgumentException("Cannot find: "+code);
             }
         }
         return curr;
