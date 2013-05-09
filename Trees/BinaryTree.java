@@ -2,6 +2,7 @@ package Trees;
 
 public abstract class BinaryTree{
 
+	//Default package protection
 	BinaryTreeNode root;
 	int size;
 
