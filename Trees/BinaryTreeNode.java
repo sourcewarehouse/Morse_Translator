@@ -2,6 +2,7 @@ package Trees;
 
 public class BinaryTreeNode{
 	
+	//Default package protection
 	Object item;
 	BinaryTreeNode parent;
 	BinaryTreeNode leftChild;
