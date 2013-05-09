@@ -1,6 +1,13 @@
-import java.util.HashMap;
+import java.util.*;
 
-public class MorseCodeDict<K,V> extends HashMap<K,V>{
+public class MorseCodeDict extends HashMap<Character, String>{
+
+   /**
+     * A MorseCodeDict maps the English alphabet, integers 0-9,
+     * and symbols (Period, Comma, Question Mark, Slash, At-sign)
+     * to the corresponding Morse Code. Whitespace is mapped as a new line
+     * to denote the beginning of a new word.
+     */
 
     public MorseCodeDict(){
         put('A', ".-");
@@ -47,6 +54,24 @@ public class MorseCodeDict<K,V> extends HashMap<K,V>{
         put('/', "-..-.");
         put('@', ".--.-.");
         put(' ', "\n");
+    }
+
+    /**
+     * Returns a String representation of this MorseCodeDict.
+     */
+    public String toString(){
+        Iterator iterator = keySet().iterator();
+        String result = "";
+   
+        while (iterator.hasNext()) {  
+            Character key = (Character)iterator.next();
+            if (key == ' '){
+                continue;
+            } 
+            String value = get(key);  
+            result += (key + "  " + value + "\n");
+        }
+        return result;
     }
 
 }
