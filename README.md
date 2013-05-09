@@ -1,6 +1,5 @@
 Morse_Translator
 ================
 
-Java program that takes Morse Code input and translates into English output
-<br/>
-**Still in progress**
+Java program that takes user input and encodes it into Morse Code or decodes it into English <br/>
+depending on that type of input given.
