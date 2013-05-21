@@ -17,7 +17,6 @@ public final class MorseCodeTree extends BinaryTree{
         t = insertLeft(root, "T");
         m = insertLeft(t, "M");
         o = insertLeft(m, "O");
-
         g = insertRight(m, "G");
         q = insertLeft(g, "Q");
         z = insertRight(g, "Z");
@@ -45,17 +44,17 @@ public final class MorseCodeTree extends BinaryTree{
         v = insertLeft(s, "V");
         h = insertRight(s, "H");
 
-        leftLine = insertLeft(o, "-");
-        zero = insertLeft(leftLine, 0);
-        nine = insertRight(leftLine, 9);
-        dot = insertRight(o, ".");
-        eight = insertRight(dot, 8);
+        lineHolder = insertLeft(o, " ");
+        zero = insertLeft(lineHolder, 0);
+        nine = insertRight(lineHolder, 9);
+        dotHolder = insertRight(o, " ");
+        eight = insertRight(dotHolder, 8);
 
         seven = insertRight(z, 7);
         six = insertRight(b, 6);
         one = insertLeft(j, 1);
 
-        rightLine = insertLeft(u, "-");
+        rightLine = insertLeft(u, "-"); //Clashes with node f
         two = insertLeft(rightLine, 2);
 
         three = insertLeft(v, 3);
